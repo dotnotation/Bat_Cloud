@@ -4,8 +4,8 @@ Models:
         - has_many :notes
         - has_many :bats, through: :notes
         - has_many :discovered_bats, foreign_key: "discoverer_id", class_name: "Bat"
-        - has_many :members, class_name: "Researcher", foreign_key: "organization_id"
-        - belongs_to :organization, class_name: "Researcher", optional: true
+        - # has_many :members, class_name: "Researcher", foreign_key: "organization_id"
+        - # belongs_to :organization, class_name: "Researcher", optional: true
         - Attributes
             - name
             - email
