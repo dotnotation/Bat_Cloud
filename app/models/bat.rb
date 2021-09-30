@@ -1,5 +1,5 @@
 class Bat < ApplicationRecord
-    extend FriendlyID
+    extend FriendlyId
     friendly_id :tag_number, use: :slugged 
 
     has_many :notes

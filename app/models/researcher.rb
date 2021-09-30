@@ -1,7 +1,9 @@
 class Researcher < ApplicationRecord
-    extend FriendlyID
+    extend FriendlyId
     friendly_id :name, use: :slugged
-    
+
+    has_secure_password
+
     has_many :notes
     has_many :bats, through: :notes
     has_many :discovered_bats, foreign_key: "discoverer_id", class_name: "Bat"
