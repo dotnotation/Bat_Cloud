@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(version: 2021_09_30_211019) do
 
   create_table "notes", force: :cascade do |t|
     t.text "content"
-    t.integer "bat_id_id", null: false
-    t.integer "researcher_id_id", null: false
+    t.integer "bat_id", null: false
+    t.integer "researcher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bat_id_id"], name: "index_notes_on_bat_id_id"
-    t.index ["researcher_id_id"], name: "index_notes_on_researcher_id_id"
+    t.index ["bat_id"], name: "index_notes_on_bat_id"
+    t.index ["researcher_id"], name: "index_notes_on_researcher_id"
   end
 
   create_table "researchers", force: :cascade do |t|
@@ -70,6 +70,6 @@ ActiveRecord::Schema.define(version: 2021_09_30_211019) do
     t.index ["slug"], name: "index_researchers_on_slug", unique: true
   end
 
-  add_foreign_key "notes", "bat_ids"
-  add_foreign_key "notes", "researcher_ids"
+  add_foreign_key "notes", "bats"
+  add_foreign_key "notes", "researchers"
 end
