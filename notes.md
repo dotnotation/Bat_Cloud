@@ -1,0 +1,53 @@
+Models:
+    - Researcher
+        - basically a user
+        - has_many :notes
+        - has_many :bats, through: :notes
+        - has_many :discovered_bats, foreign_key: "discoverer_id", class_name: "Bat"
+        - has_many :members, class_name: "Researcher", foreign_key: "organization_id"
+        - belongs_to :organization, class_name: "Researcher", optional: true
+        - Attributes
+            - name
+            - email
+            - password_digest
+            - address
+            - phone_number
+            - organization_id
+            - slug
+            - uid
+            - provider
+            - access default: member
+        - Organization can edit, read, update, or delete anything
+        - Members can edit, read, and update anything
+    
+    - Notes
+        - notes on each bat created by a researcher
+        - belongs_to :bat
+        - belongs_to :researcher
+        - Attributes
+            - content
+            - bat_id
+            - researcher_id
+        - viewed, and edited on bat's show or edit page
+
+    - Bats
+        - has_many :notes
+        - has_many :researchers, through: :notes
+        - belongs_to :discoverer, class_name: "Researcher"
+        - accepts nested attributes for notes
+        - Attributes
+            - tag_number
+            - nickname
+            - species
+            - date_found
+            - location
+            - date_last_seen
+            - sex
+            - age
+            - weight
+            - wing_span
+            - colony_size
+            - conservation_status
+            - white_nose_syndrome
+            - slug
+            - discoverer_id
