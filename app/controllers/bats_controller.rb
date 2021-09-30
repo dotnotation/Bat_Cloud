@@ -1,0 +1,2 @@
+class BatsController < ApplicationController
+end

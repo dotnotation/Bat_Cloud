@@ -1,0 +1,2 @@
+class Bat < ApplicationRecord
+end
