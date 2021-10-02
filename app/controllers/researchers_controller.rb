@@ -45,9 +45,10 @@ class ResearchersController < ApplicationController
     end
     
     def destroy
-        if @researcher == current_researcher || admin?
+        binding.pry
+        if current_researcher || admin?
             @researcher.destroy
-            session.delete[:researcher_id]
+            session[:researcher_id] = nil
             flash[:sucess] = "Your account has been deleted. We are sorry to see you go."
             redirect_to root_path
         else

@@ -25,5 +25,7 @@ Access Type: <%= @researcher.access %><br><br>
         </label>
     </div>
 
+    <%= link_to 'Delete Account', researcher_path(@researcher), method: :delete, class: 'btn-link' %>
+
 
 <% end %>

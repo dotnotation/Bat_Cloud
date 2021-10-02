@@ -8,9 +8,22 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Bat Cloud</title>
   </head>
 
   <body>
+      <%= render partial: "layouts/navbar" %>
+  <!----------- START FLASH --------------->
+    <% if !flash.empty?%>
+      <% flash.each do |type, msg| %>  
+        <div class="alert alert-<%=type%> text-center">
+          <p><%= msg %></p>
+        </div>
+      <% end %>
+    <% end %>
+<!----------- END FLASH --------------->
     <%= yield %>
   </body>
 </html>
