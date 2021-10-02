@@ -8,11 +8,9 @@ module ApplicationHelper
         !!current_researcher
     end
 
-    def format_date(obj)
-        date = obj.created_at.to_date
-
-        date.strftime("%B %d, %Y at %I:%M %P")
-    end
+    # def self.format_date
+    #     self.strftime("%B %d, %Y at %I:%M %P")
+    # end
 
     def admin?
         current_researcher.access == "admin"
