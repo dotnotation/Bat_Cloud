@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @researcher = Researcher.find_by(email: params[:email])
-        if @researcher && researcher.authenticate(params[:password])
+        @researcher = Researcher.find_by(email: params[:researcher][:email])
+        if @researcher && @researcher.authenticate(params[:researcher][:password])
             session[:researcher_id] = @researcher.id 
             flash[:success] = "Welcome #{@researcher.name}! You are now logged in."
             redirect_to bats_path
