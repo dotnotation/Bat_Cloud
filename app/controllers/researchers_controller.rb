@@ -1,6 +1,6 @@
 class ResearchersController < ApplicationController
-    before_action :researcher_authorization, only: [:edit, :update, :destroy]
-    before_action :find_researcher, only: [:show]
+    before_action :researcher_authorization, only: [:edit, :update]
+    before_action :find_researcher, only: [:show, :destroy]
 
     def index
         @researchers = Researcher.all
@@ -45,7 +45,6 @@ class ResearchersController < ApplicationController
     end
     
     def destroy
-        binding.pry
         if current_researcher || admin?
             @researcher.destroy
             session[:researcher_id] = nil
