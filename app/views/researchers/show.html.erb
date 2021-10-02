@@ -1,1 +1,29 @@
-<%= @researcher.name %>
+<h3><%= @researcher.name %></h3>
+
+Email: <%= @researcher.email %><br>
+
+Address: <%= @researcher.address %><br>
+
+Phone Number: <%= @researcher.phone_number %><br>
+
+Organization: <%= @researcher.organization_name %><br>
+
+Access Type: <%= @researcher.access %><br><br>
+
+<h4>Bats:</h4> 
+    <ol>
+        <% @researcher.discovered_bats.all.each do |bat| %>
+            <li><%= link_to bat.tag_number, bat_path(bat)  %></li>
+        <% end %>
+    </ol>
+
+<% if current_researcher.id == @researcher.id || admin? %>
+    <div class="btn-del">
+        <label class="btn btn-warning btn-sm active">
+            <%= button_to "Delete Account", { action: "destroy", id: @researcher.id },
+                    method: :delete, data: { confirm: "Are you sure? This action is permanent" } %>
+        </label>
+    </div>
+
+
+<% end %>
