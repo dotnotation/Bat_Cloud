@@ -18,6 +18,9 @@
                       <li class="nav-item">
                         <%= link_to "Log New Bat", new_bat_path, class: "nav-link active fs-4" %>
                       </li>
+                      <li class="nav-item">
+                        <%= link_to 'LOGOUT', logout_path, class: "btn btn-outline-light", method: 'delete' %>  
+                      </li>
                       
                   <% else %>
                       <li class="nav-item">
@@ -30,19 +33,7 @@
                         <%= link_to "All Bats", bats_path, class: "nav-link active fs-4" %>
                       </li>
                   <% end%>
-              </ul>
-                <% if logged_in? %>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li>
-                      <div class="btn-nav">
-                        <form action="/logout" method="post">
-                            <input type="hidden" name="_method" value="delete">
-                            <input type="submit" class="btn btn-secondary" value="Logout">
-                        </form>
-                      </div>
-                    </li>
-                   </ul> 
-                <%end%>
+
             </div>
         </div>
     </nav>
