@@ -36,7 +36,7 @@ class ResearchersController < ApplicationController
     private
 
     def researcher_params
-        params.require(:user).permit(:name, :email, :password, :address, :phone_number, :organization_id, :organization_name, :access)
+        params.require(:researcher).permit(:name, :email, :password, :address, :phone_number, :organization_id, :organization_name, :access)
     end
 
     def find_researcher

@@ -1,13 +1,22 @@
-<%= form_with(model: @researcher, url: signup_path)  do |f|%>
+<%= form_with model: @researcher do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
     <%= f.label :email %>
     <%= f.text_field :email %><br>
     <%= f.label :password %>
     <%= f.password_field :password %><br>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+    <%= f.label :organization_name %>
+    <%= f.text_field :organization_name %>
 
     <% if logged_in? && admin? %>
-        <%= f.label :access, "User Type" %>
-            <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @user.access.titleize}, {class: "form-select"}%>
+        <%= f.label :organization_id, "Organization ID" %>
+        <%= f.text_field :organization_id %>
+        <%= f.label :access, "Researcher Type" %>
+        <%= f.text_field :access %>
+    <% end %>
     <%= f.submit "Sign Up" %>
 <% end %>

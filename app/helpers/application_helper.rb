@@ -1,11 +1,11 @@
 module ApplicationHelper
 
-    def current_user
-        @user ||= User.find_by_id(session[:user_id])
+    def current_researcher
+        @researcher ||= Researcher.find_by_id(session[:researcher_id])
     end
 
     def logged_in?
-        !!current_user
+        !!current_researcher
     end
 
     def format_date(obj)
@@ -15,10 +15,10 @@ module ApplicationHelper
     end
 
     def admin?
-        current_user.access == "admin"
+        current_researcher.access == "admin"
     end
 
     def member?
-        current_user.access == "member"
+        current_researcher.access == "member"
     end
 end
