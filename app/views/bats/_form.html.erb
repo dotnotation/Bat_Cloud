@@ -1,0 +1,30 @@
+<% form_with model: @bat do |f| %>
+    <%= f.label :tag_number %>
+    <%= f.text_field :tag_number %>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %>
+    <%= f.label :species %>
+    <%= f.text_field :species %>
+    <%= f.label :date_found %>
+    <%= f.text_field :date_found %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <%= f.label :date_last_seen %>
+    <%= f.text_field :date_last_seen %>
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+    <%= f.label :sex %>
+    <%= f.text_field :sex %>
+    <%= f.label :wing_span %>
+    <%= f.text_field :wing_span %>
+    <%= f.label :colony_size %>
+    <%= f.text_field :colony_size %>
+    <%= f.label :conservation_status %>
+    <%= f.text_field :conservation_status %>
+    <%= f.label :white_nose_syndrome %>
+    <%= f.text_field :white_nose_syndrome %>
+    
+    <%= f.submit %>
+<% end %>
