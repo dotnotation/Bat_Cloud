@@ -26,6 +26,10 @@
 
 <b>Updated at:</b> <%= @bat.updated_at.to_s(:custom_datetime) %><br>
 
-<b>Discovered by:</b> <%= @bat.discoverer.name %>
+<b>Discovered by:</b> <%= @bat.discoverer.name %><br><br>
 
-<%= render partial: 'notes/notes' %>
+<h5>Notes:</h5>
+<%= render @notes %><br>
+
+<h6>New Note:</h6>
+<%= render partial: 'notes/form' %>
