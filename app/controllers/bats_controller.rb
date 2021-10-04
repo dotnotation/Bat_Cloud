@@ -22,6 +22,8 @@ class BatsController < ApplicationController
     end
 
     def show
+        @notes = @bat.notes
+        @note = Note.new(researcher_id: current_researcher.id)
     end
 
     def edit
