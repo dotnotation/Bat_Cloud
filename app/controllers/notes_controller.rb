@@ -1,7 +1,8 @@
 class NotesController < ApplicationController
 
     def create
-        @bat = Bat.friendly.find(params[:id])
+        # byebug
+        @bat = Bat.friendly.find(params[:bat_id])
         @note = @bat.notes.build(note_params)
         if @note.save
             flash[:success] = "Your note has been saved."
