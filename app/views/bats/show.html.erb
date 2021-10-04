@@ -33,3 +33,9 @@
 
 <h6>New Note:</h6>
 <%= render partial: 'notes/form' %>
+
+
+    <%= button_to "Delete Bat", { action: "destroy", id: @bat.id },
+                    method: :delete, data: { confirm: "Are you sure? This action is permanent" } %>
+    <%= link_to 'Edit Bat', edit_bat_path(@bat), class: "btn btn-warning btn-sm active" %>
+
