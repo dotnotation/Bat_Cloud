@@ -1,6 +1,6 @@
 class BatsController < ApplicationController
     before_action :find_bat, only: [:show, :edit, :update, :destroy]
-    #before_action :bat_authorization, only: [:edit, :update, :destroy]
+    before_action :bat_authorization, only: [:edit, :update, :destroy]
 
     def index
         @bats = Bat.all 

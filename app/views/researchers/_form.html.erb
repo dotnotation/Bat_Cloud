@@ -12,13 +12,13 @@
     <%= f.label :phone_number %>
     <%= f.text_field :phone_number %>
     <%= f.label :organization_name %>
-    <%= f.text_field :organization_name %>
+    <%= f.collection_select :organization_name, Researcher.all, :id, :organization_name, {include_blank:true} %>
 
     <% if logged_in? && admin? %>
         <%= f.label :organization_id, "Organization ID" %>
-        <%= f.text_field :organization_id %>
+        <%= f.collection_select :organization_id, Researcher.all, :id, :organization_id, {include_blank:true} %>
         <%= f.label :access, "Researcher Type" %>
-        <%= f.text_field :access %>
+        <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize} %>
     <% end %>
-    <%= f.submit "Sign Up" %>
+    <%= f.submit %>
 <% end %>
