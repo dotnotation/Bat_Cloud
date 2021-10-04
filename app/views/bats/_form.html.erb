@@ -23,8 +23,11 @@
     <%= f.text_field :colony_size %><br>
     <%= f.label :conservation_status %>
     <%= f.text_field :conservation_status %><br>
-    <%= f.label :white_nose_syndrome %>
-    <%= f.text_field :white_nose_syndrome %><br>
+    Presence of White Nose Syndrome:
+    <%= f.label :white_nose_syndrome, 'True' %>
+    <%= f.radio_button :white_nose_syndrome, 'true' %>
+    <%= f.label :white_nose_syndrome, 'False' %>
+    <%= f.radio_button :white_nose_syndrome, 'false' %><br>
     <%= f.hidden_field :discoverer_id, value: current_researcher.id %><br>
     
     <%= f.submit %>
