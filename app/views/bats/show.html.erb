@@ -25,3 +25,5 @@
 <b>Presence of White Nose Syndrom:</b> <%= @bat.white_nose_syndrome %><br>
 
 <b>Updated at:</b> <%= @bat.updated_at.to_s(:custom_datetime) %><br>
+
+<b>Discovered by:</b> <%= @bat.discoverer.name %>

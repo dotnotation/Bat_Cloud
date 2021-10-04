@@ -1,6 +1,6 @@
 class ResearchersController < ApplicationController
-    before_action :researcher_authorization, only: [:edit, :update]
     before_action :find_researcher, only: [:show, :destroy]
+    before_action :researcher_authorization, only: [:edit, :update]
 
     def index
         @researchers = Researcher.all
