@@ -1,12 +1,9 @@
 class BatsController < ApplicationController
     before_action :find_bat, only: [:show, :edit, :update, :destroy]
-    before_action :bat_authorization, only: [:edit, :update, :destroy]
+    #before_action :bat_authorization, only: [:edit, :update, :destroy]
 
     def index
         @bats = Bat.all 
-    end
-
-    def show
     end
 
     def new
@@ -24,13 +21,11 @@ class BatsController < ApplicationController
         end
     end
 
+    def show
+    end
+
     def edit
-        if @bat == current_bat || admin?
-            render :edit
-        else
-            flash[:danger] = "You are not authorized to make changes to this account."
-            redirect_to bats_path
-        end
+
     end
 
     def update
