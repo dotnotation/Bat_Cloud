@@ -67,8 +67,11 @@ class ResearchersController < ApplicationController
     end
 
     def researcher_authorization
+        #byebug
         find_researcher
-        if @researcher.id != session[:researcher_id] || !admin?
+        if @researcher.id == session[:researcher_id] || admin?
+            render :edit
+        else
             flash[:danger] = "You are not authorized to make changes to this account"
             redirect_to bats_path 
         end
