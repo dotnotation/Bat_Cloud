@@ -1,6 +1,5 @@
 class ResearchersController < ApplicationController
     before_action :find_researcher, only: [:show, :destroy]
-    before_action :researcher_authorization, only: [:edit, :update]
 
     def index
         @researchers = Researcher.all
@@ -26,11 +25,12 @@ class ResearchersController < ApplicationController
     end
 
     def edit
-        if @researcher == current_researcher || admin?
+        if @researcher.id == session[:researcher_id] || admin?
+            flash[:success] = "You are authorized to make changes."
             render :edit
         else
-            flash[:danger] = "You are not authorized to make changes to this account."
-            redirect_to bats_path
+            flash[:danger] = "You are not authorized to make changes to this account"
+            redirect_to bats_path 
         end
     end
 
@@ -66,14 +66,4 @@ class ResearchersController < ApplicationController
         @researcher = Researcher.friendly.find(params[:id])
     end
 
-    def researcher_authorization
-        #byebug
-        find_researcher
-        if @researcher.id == session[:researcher_id] || admin?
-            render :edit
-        else
-            flash[:danger] = "You are not authorized to make changes to this account"
-            redirect_to bats_path 
-        end
-    end
 end
