@@ -46,9 +46,9 @@ class BatsController < ApplicationController
     end
     
     def destroy
-        if admin?
+        if @bat.discoverer_id == session[:researcher_id] || admin?
             @bat.destroy
-            flash[:sucess] = "This bat has been removed from the database."
+            flash[:success] = "This bat has been removed from the database."
             redirect_to bats_path
         else
             flash[:danger] = "Something went wrong. Please try again later."

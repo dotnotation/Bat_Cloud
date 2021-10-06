@@ -12,4 +12,8 @@ class Researcher < ApplicationRecord
     validates :email, presence: true, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}
     # /\A[a-zA-Z0-9.!\#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\z/
     validates :password, length: {in: 6..20}
+
+    scope :organizations, -> {select('DISTINCT organization_name')}
+    scope :admin, ->{where(access: "admin")}
+    scope :member, ->{where(access: "member")}
 end

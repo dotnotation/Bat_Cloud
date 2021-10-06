@@ -12,7 +12,7 @@
     <%= f.label :phone_number %>
     <%= f.text_field :phone_number %>
     <%= f.label :organization_name %>
-    <%= f.collection_select :organization_name, Researcher.all, :organization_name, :organization_name, {include_blank:true} %>
+    <%= f.collection_select :organization_name, Researcher.organizations, :organization_name, :organization_name, {include_blank:true} %>
 
     <% if logged_in? && admin? %>
         <%= f.label :access, "Researcher Type" %>
