@@ -7,8 +7,6 @@ class Researcher < ApplicationRecord
     has_many :notes
     has_many :bats, through: :notes
     has_many :discovered_bats, foreign_key: "discoverer_id", class_name: "Bat"
-    belongs_to :organization, class_name: "Researcher", optional:true 
-    has_many :members, class_name: "Researcher", foreign_key: "organization_id"
 
     validates :name, presence: true, uniqueness: true, length: {minimum: 5}
     validates :email, presence: true, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}

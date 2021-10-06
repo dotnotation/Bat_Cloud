@@ -1,6 +1,5 @@
 class BatsController < ApplicationController
     before_action :find_bat, only: [:show, :edit, :update, :destroy]
-    before_action :bat_authorization, only: [:edit, :update, :destroy]
 
     def index
         @bats = Bat.all 
@@ -27,6 +26,12 @@ class BatsController < ApplicationController
     end
 
     def edit
+        if @bat.discoverer_id == session[:researcher_id] || admin?
+            render :edit
+        else
+            flash[:danger] = "You are not authorized to make changes to this bat."
+            redirect_to bats_path
+        end
 
     end
 
@@ -62,11 +67,4 @@ class BatsController < ApplicationController
         @bat = Bat.friendly.find(params[:id])
     end
 
-    def bat_authorization
-        find_bat
-        if @bat.discoverer_id != session[:researcher_id] || !admin?
-            flash[:error] = "You are not authorized to make changes to this bat."
-            redirect_to bats_path
-        end
-    end
 end

@@ -10,24 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_175914) do
-
-  create_table "Researchers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.string "address"
-    t.string "phone_number"
-    t.string "uid"
-    t.string "provider"
-    t.string "access", default: "member"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.integer "organization_id"
-    t.string "organization_name"
-    t.index ["slug"], name: "index_researchers_on_slug", unique: true
-  end
+ActiveRecord::Schema.define(version: 2021_10_06_040439) do
 
   create_table "bats", force: :cascade do |t|
     t.string "tag_number"
@@ -69,6 +52,22 @@ ActiveRecord::Schema.define(version: 2021_10_02_175914) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bat_id"], name: "index_notes_on_bat_id"
     t.index ["researcher_id"], name: "index_notes_on_researcher_id"
+  end
+
+  create_table "researchers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "address"
+    t.string "phone_number"
+    t.string "uid"
+    t.string "provider"
+    t.string "access", default: "member"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.string "organization_name"
+    t.index ["slug"], name: "index_researchers_on_slug", unique: true
   end
 
   add_foreign_key "notes", "bats"

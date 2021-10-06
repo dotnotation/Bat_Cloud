@@ -15,8 +15,6 @@
     <%= f.collection_select :organization_name, Researcher.all, :organization_name, :organization_name, {include_blank:true} %>
 
     <% if logged_in? && admin? %>
-        <%= f.label :organization_id, "Organization ID" %>
-        <%= f.collection_select :organization_id, Researcher.all, :id, :organization_id, {include_blank:true} %>
         <%= f.label :access, "Researcher Type" %>
         <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize} %>
     <% end %>

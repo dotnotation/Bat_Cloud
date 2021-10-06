@@ -11,7 +11,6 @@ Researcher.create(
     email: "merlintuttle@gmail.com",
     address: "5000 Mission Oaks, #41, Austin, Texas 78735",
     phone_number: "(512) 358-0014", 
-    organization_id: 1,
     organization_name: "Merlin Tuttle's Bat Conservation", 
     password: "ilovebats",
     access: "admin"
@@ -22,7 +21,6 @@ Researcher.create(
     email: "batcon@batcon.com", 
     address: "500 N Capital of TX Hwy. Bldg. 1Austin, TX 78746",
     phone_number: "1.800.538.BATS",
-    organization_id: 2,
     organization_name: "Bat Conservation International",
     password: "ilovebats",
     access: "admin"
@@ -33,7 +31,6 @@ Researcher.create(
     email: "abrokaw@batcon.com", 
     address: "500 N Capital of TX Hwy. Bldg. 1Austin, TX 78746",
     phone_number: "1.800.538.BATS",
-    organization_id: 2,
     organization_name: "Bat Conservation International",
     password: "ilovebats",
     access: "member"
