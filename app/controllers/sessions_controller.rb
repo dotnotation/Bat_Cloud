@@ -21,12 +21,13 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
+        byebug
         @researcher = Researcher.find_or_create_by(email: auth[:info][:email]) do |r|
-            u.email = auth[:info][:email]
-            u.name = auth[:info][:name]
-            u.uid = auth[:uid]
-            u.provider = auth[:provider]
-            u.password = SecureRandom.hex(64)
+            r.email = auth[:info][:email]
+            r.name = auth[:info][:name]
+            r.uid = auth[:uid]
+            r.provider = auth[:provider]
+            r.password = SecureRandom.hex(64)
         end
 
         if @researcher.valid?
