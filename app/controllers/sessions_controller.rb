@@ -19,4 +19,28 @@ class SessionsController < ApplicationController
         session.clear
         redirect_to login_path
     end
+
+    def omniauth
+        @researcher = Researcher.find_or_create_by(email: auth[:info][:email]) do |r|
+            u.email = auth[:info][:email]
+            u.name = auth[:info][:name]
+            u.uid = auth[:uid]
+            u.provider = auth[:provider]
+            u.password = SecureRandom.hex(64)
+        end
+
+        if @researcher.valid?
+            session[:researcher_id] = researcher.id 
+            redirect_to bats_path
+        else
+            flash[:danger] = "Incorrect login. Please try again."
+            redirect_to login_path
+        end       
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
+    end
 end
