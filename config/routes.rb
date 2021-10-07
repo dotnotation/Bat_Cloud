@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :researchers
+
+  match '/*path', to: 'errors#not_found', via: [:get, :post]
 end
