@@ -21,20 +21,20 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        byebug
+        #byebug
         @researcher = Researcher.find_or_create_by(email: auth[:info][:email]) do |r|
             r.email = auth[:info][:email]
             r.name = auth[:info][:name]
             r.uid = auth[:uid]
             r.provider = auth[:provider]
-            r.password = SecureRandom.hex(64)
+            r.password = SecureRandom.hex(16)
         end
 
         if @researcher.valid?
-            session[:researcher_id] = researcher.id 
+            session[:researcher_id] = @researcher.id 
             redirect_to bats_path
         else
-            flash[:danger] = "Incorrect login. Please try again."
+            flash[:danger] = "#{@researcher.errors.full_messages.join(", ")}"
             redirect_to login_path
         end       
     end
