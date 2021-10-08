@@ -1,7 +1,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <%= image_tag('white-bat.png', width: '50', height: '50') %>
+                <%= image_tag('white-bat.png', alt: "Bat Cloud logo of a white bat", width: '50', height: '50') %>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,6 +11,9 @@
                   <% if logged_in? %>
                       <li class="nav-item">
                         <%= link_to "Account", current_researcher, class: "nav-link active fs-4" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "Researchers", researchers_path, class: "nav-link active fs-4" %>
                       </li>
                       <li class="nav-item">
                         <%= link_to "All Bats", bats_path, class: "nav-link active fs-4" %>

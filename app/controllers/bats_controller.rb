@@ -32,7 +32,11 @@ class BatsController < ApplicationController
 
     def show
         @notes = @bat.notes
-        @note = Note.new(researcher_id: current_researcher.id)
+        if logged_in?
+            @note = Note.new(researcher_id: current_researcher.id)
+        else
+            flash[:message] = "Please log in to see notes about this bat."
+        end
     end
 
     def edit

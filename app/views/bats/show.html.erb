@@ -37,14 +37,17 @@
 
 <b>Discovered by:</b> <%= @bat.discoverer.name %><br><br>
 
-<h5>Notes:</h5>
-<%= render @notes %><br>
+<% if logged_in? %>
+    <h5>Notes:</h5>
+    <%= render @notes %><br>
 
-<h6>New Note:</h6>
-<%= render partial: 'notes/form' %>
+    <h6>New Note:</h6>
+    <%= render partial: 'notes/form' %>
 
-<% if admin? || @bat.discoverer_id == current_researcher.id %>
-    <%= button_to "Delete Bat", { action: "destroy", id: @bat.id }, class: "btn btn-danger btn-sm active",
-                method: :delete, data: { confirm: "Are you sure? This action is permanent" } %><br>
-    <%= link_to 'Edit Bat', edit_bat_path(@bat), class: "btn btn-warning btn-sm active" %>
+
+    <% if admin? || @bat.discoverer_id == current_researcher.id %>
+        <%= button_to "Delete Bat", { action: "destroy", id: @bat.id }, class: "btn btn-danger btn-sm active",
+                    method: :delete, data: { confirm: "Are you sure? This action is permanent" } %><br>
+        <%= link_to 'Edit Bat', edit_bat_path(@bat), class: "btn btn-warning btn-sm active" %>
+    <% end %>
 <% end %>
