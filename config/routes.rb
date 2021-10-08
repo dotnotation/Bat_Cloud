@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
+  get '/search', to: 'bats#search'
+
+  get '/recently_discovered', to: 'bats#recently_discovered'
+
   resources :bats do
     resources :notes, only: [:create]
   end

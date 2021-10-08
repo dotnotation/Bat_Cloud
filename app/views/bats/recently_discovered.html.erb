@@ -1,0 +1,11 @@
+<h1>Recently Discovered Bats:</h1>
+
+<ol>
+    <% @bats.each do |b| %>
+        <li><%= link_to b.tag_number, bat_path(b) %>
+            - Discovered on <%= b.date_found.to_s(:custom_datetime) %>
+                by: <%= b.discoverer.name %> </li>
+    <% end %>
+</ol>
+
+<%= link_to 'Back', bats_path %>

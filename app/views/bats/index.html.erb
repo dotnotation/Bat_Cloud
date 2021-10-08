@@ -4,6 +4,8 @@
     <% end %></h1>
 
 <h2>Recorded Bats:</h2>
+
+<%= link_to 'Recently Discovered Bats', recently_discovered_path %>
     <ol>
         <% @bats.each do |b| %>
             <li><%= link_to b.tag_number, bat_path(b) %></li>

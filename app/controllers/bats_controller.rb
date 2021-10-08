@@ -1,8 +1,18 @@
 class BatsController < ApplicationController
+    before_action :redirect_if_not_logged_in, only: [:new, :create, :edit, :update, :destroy]
     before_action :find_bat, only: [:show, :edit, :update, :destroy]
 
     def index
         @bats = Bat.all 
+    end
+
+    def search
+        @bats = Bat.search(params[:tag_number])
+        render :index
+    end
+
+    def recently_discovered
+        @bats = Bat.recently_discovered.limit(10)
     end
 
     def new

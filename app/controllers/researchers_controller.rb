@@ -1,4 +1,6 @@
 class ResearchersController < ApplicationController
+    before_action :redirect_if_not_logged_in, only: [:edit, :update, :destroy]
+    before_action :redirect_if_logged_in, only: [:new, :create]
     before_action :find_researcher, only: [:show, :destroy, :edit, :update]
 
     def index
