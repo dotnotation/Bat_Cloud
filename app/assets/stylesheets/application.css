@@ -13,8 +13,22 @@
  *= require_tree .
  *= require_self
  */
+ .navbar {
+    width: 100%;
+}
 
-body{
-    background-image: url('../images/batground.jpg');
+ .page-bg{
+    background-image: url(batground.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     background-color: black;
   }
+
+  .wrapper {
+    background: transparent;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin: 16px auto;
+    width: 85%;
+  }
+

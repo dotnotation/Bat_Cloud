@@ -13,8 +13,9 @@
     <title>Bat Cloud</title>
   </head>
 
-  <body>
+  <body class="page-bg">
       <%= render partial: "layouts/navbar" %>
+    <div class="wrapper">
   <!----------- START FLASH --------------->
     <% if !flash.empty?%>
       <% flash.each do |type, msg| %>  
@@ -25,5 +26,6 @@
     <% end %>
 <!----------- END FLASH --------------->
     <%= yield %>
+    </div>
   </body>
 </html>
