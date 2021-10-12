@@ -1,32 +1,35 @@
+<form class="row g-3">
 <%= form_with model: @researcher do |f| %>
-        
-    <b><%= f.label :name %></b>
-    <%= f.text_field :name %><br>
-
-    
-    <b><%= f.label :email %></b>
-    <%= f.text_field :email %><br>
-
-    
-    <b><%= f.label :password %></b>
-    <%= f.password_field :password %><br>
-
-
-    <b><%= f.label :address %></b>
-    <%= f.text_field :address %>
-
-    
-    <b><%= f.label :phone_number %></b>
-    <%= f.text_field :phone_number %>
-
-    
-    <b><%= f.label :organization_name %></b>
-    <%= f.collection_select :organization_name, Researcher.organizations, :organization_name, :organization_name, {include_blank:true} %>
-
-    <% if logged_in? && admin? %>
-        <b><%= f.label :access, "Researcher Type" %></b>
-        <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize} %>
-    <% end %>
+    <div class="col-md-4">   
+        <b><%= f.label :name %></b>
+        <%= f.text_field :name, class:"form-control" %>
+    </div>
+    <div class="col-md-4">     
+        <b><%= f.label :email %></b>
+        <%= f.text_field :email, class:"form-control" %>
+    </div>
+    <div class="col-md-4">     
+        <b><%= f.label :password %></b>
+        <%= f.password_field :password, class:"form-control" %>
+    </div>
+    <div class="col-md-4">     
+        <b><%= f.label :phone_number %></b>
+        <%= f.text_field :phone_number, class:"form-control" %>
+    </div>
+    <div class="col-8">     
+        <b><%= f.label :organization_name %></b>
+        <%= f.collection_select :organization_name, Researcher.organizations, :organization_name, :organization_name, {include_blank:true}, class:"form-control" %>
+    </div>
+    <div class="col-8"> 
+        <b><%= f.label :address %></b>
+        <%= f.text_field :address, class:"form-control" %>
+    </div>
+        <% if logged_in? && admin? %>
+            <div class="col-md-2"> 
+                <b><%= f.label :access, "Researcher Type" %></b>
+                <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize}, class:"form-control" %>
+            </div>
+        <% end %>
         
     <%= f.submit submit_text, class: "btn btn-info" %>
 <% end %>

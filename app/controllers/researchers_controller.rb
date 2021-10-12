@@ -28,7 +28,6 @@ class ResearchersController < ApplicationController
 
     def edit
         if @researcher.id == session[:researcher_id] || admin?
-            flash[:success] = "You are authorized to make changes."
             render :edit
         else
             flash[:danger] = "You are not authorized to make changes to this account"
