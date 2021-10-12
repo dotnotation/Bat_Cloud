@@ -2,4 +2,9 @@
 
 <h1>Edit Bat</h1>
 
-<%= render partial: "form", locals: {submit_text: "Edit Bat"} %>
+<%= form_with model: @bat do |f| %>
+
+    <%= render "form", f: f %>
+
+            <%= f.submit "Update Bat", class: "btn btn-info" %>
+<% end %>

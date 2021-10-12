@@ -44,12 +44,14 @@ class ResearchersController < ApplicationController
     end
     
     def destroy
+        # byebug
         if current_researcher || admin?
             @researcher.destroy
             flash[:sucess] = "Your account has been deleted. We are sorry to see you go."
             if admin? 
                 redirect_to bats_path
             else
+                session[:researcher_id] = nil
                 redirect_to root_path
             end
         else

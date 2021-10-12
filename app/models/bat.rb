@@ -7,6 +7,7 @@ class Bat < ApplicationRecord
     belongs_to :discoverer, class_name: "Researcher"
 
     validates :tag_number, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+    validates :date_found, presence: true
 
     scope :search, -> (query) { self.where("tag_number LIKE ?", "%#{query}%")}
     scope :recently_discovered, -> { order date_found: :desc}

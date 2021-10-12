@@ -2,11 +2,11 @@
 
 <ol>
     <% @bats.each do |b| %>
-        <% if b.date_found != nil %>
         <li><%= link_to b.tag_number, bat_path(b), class: "link-info" %>
             - Discovered on <%= b.date_found.to_s(:custom_datetime) %>
-                by: <%= b.discoverer.name %> </li>
-        <% end %>
+                by: <% if b.discoverer != nil %> 
+                        <%= b.discoverer.name %></li>
+                    <%end%>
     <% end %>
 </ol>
 

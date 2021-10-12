@@ -35,7 +35,10 @@
         <%= @bat.updated_at.to_s(:custom_datetime) %>
     <% end %><br>
 
-<b>Discovered by:</b> <%= @bat.discoverer.name %><br><br>
+<b>Discovered by:</b> 
+    <% if @bat.discoverer != nil %>
+        <%= @bat.discoverer.name %><br><br>
+    <<% end %>
 
 <% if logged_in? %>
     <h5>Field Notes:</h5>
