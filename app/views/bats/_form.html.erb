@@ -30,5 +30,5 @@
     <%= f.radio_button :white_nose_syndrome, 'false' %><br>
     <%= f.hidden_field :discoverer_id, value: current_researcher.id %><br>
     
-    <%= f.submit %>
+    <%= f.submit submit_text, class: "btn btn-info" %>
 <% end %>
