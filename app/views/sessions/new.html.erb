@@ -1,6 +1,5 @@
 <h1> LogIn </h1>
-<form class="row g-3">
-    <%= form_with(scope: :researcher, url: login_path)  do |f|%>
+    <%= form_with(scope: :researcher, url: login_path, class: "row g-3")  do |f|%>
         <div class="col-md-4">     
             <b><%= f.label :email %></b>
             <%= f.text_field :email, class:"form-control" %>
@@ -9,10 +8,10 @@
             <b><%= f.label :password %></b>
             <%= f.password_field :password, class:"form-control" %>
         </div>
+        <br>
         <div class="col-md-6"> 
             <%= f.submit "Sign In", class: 'btn btn-info' %>
         </div>
     <% end %>
-</form>
 <br>
 <%= link_to image_tag("btn_google_signin_light_pressed_web.png", alt: "Google Sign In"), "/auth/google_oauth2" %>
