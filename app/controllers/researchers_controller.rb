@@ -21,7 +21,6 @@ class ResearchersController < ApplicationController
             session[:researcher_id] = @researcher.id 
             redirect_to bats_path
         else
-            flash[:danger] = "#{@researcher.errors.full_messages.join(", ")}"
             render :new
         end
     end
@@ -40,7 +39,6 @@ class ResearchersController < ApplicationController
             flash[:success] = "Your account has been updated."
             redirect_to researcher_path
         else
-            flash[:danger] = "#{@researcher.errors.full_messages.join(", ")}"
             render :edit
         end
     end

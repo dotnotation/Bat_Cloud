@@ -25,7 +25,6 @@ class BatsController < ApplicationController
             flash[:success] = "Your bat has been logged."
             redirect_to bat_path(@bat)
         else
-            flash[:danger] = "#{@bat.errors.full_messages.join(", ")}"
             render :new
         end
     end
@@ -54,7 +53,6 @@ class BatsController < ApplicationController
             flash[:success] = "Your bat has been updated."
             redirect_to bat_path(@bat)
         else
-            flash[:danger] = "#{@bat.errors.full_messages.join(", ")}"
             render :edit
         end
     end

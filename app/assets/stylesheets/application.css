@@ -37,5 +37,14 @@
     width: 85%;
   }
 
+  .field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+  }
 
+  #error_explanation{
+    background-color: #ffd4d4;
+    color: #990000;
+}
 
