@@ -1,14 +1,14 @@
-<h3><%= @researcher.name %></h3>
+<h2><%= @researcher.name %></h2>
 
-Email: <%= @researcher.email %><br>
+<b>Email:</b> <%= @researcher.email %><br>
 
-Address: <%= @researcher.address %><br>
+<b>Address:</b> <%= @researcher.address %><br>
 
-Phone Number: <%= @researcher.phone_number %><br>
+<b>Phone Number:</b> <%= @researcher.phone_number %><br>
 
-Organization: <%= @researcher.organization_name %><br>
+<b>Organization:</b> <%= @researcher.organization_name %><br>
 
-Access Type: <%= @researcher.access %><br><br>
+<b>Access Type:</b> <%= @researcher.access %><br><br>
 
 <h4>Bats:</h4> 
     <ol>
@@ -16,14 +16,13 @@ Access Type: <%= @researcher.access %><br><br>
             <li><%= link_to bat.tag_number, bat_path(bat), class: 'link-info' %></li>
         <% end %>
     </ol>
+    <br>
 
 <% if current_researcher.id == @researcher.id || admin? %>
-
-    <%= button_to "Delete Account", { action: "destroy", id: @researcher.id }, class: "btn btn-danger btn-sm active",
-                method: :delete, data: { confirm: "Are you sure? This action is permanent" } %><br>
-
-
     <%= link_to 'Edit Account', edit_researcher_path(@researcher), class: "btn btn-warning btn-sm active" %>
-
+    <br>
+    <br>
+    <%= button_to "Delete Account", { action: "destroy", id: @researcher.id }, class: "btn btn-danger btn-sm active",
+                method: :delete, data: { confirm: "Are you sure? This action is permanent" } %>
 
 <% end %>
