@@ -30,7 +30,8 @@
                 <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize}, class:"form-control" %>
             </div>
         <% end %>
-        
-    <%= f.submit submit_text, class: "btn btn-info" %>
+    <div class="col-6">     
+        <%= f.submit submit_text, class: "btn btn-info btn-large" %>
+    </div>
 <% end %>
 
