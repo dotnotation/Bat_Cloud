@@ -18,7 +18,7 @@
     </ol>
     <br>
 
-<% if current_researcher.id == @researcher.id || admin? %>
+<% if admin? || current_researcher.id == @researcher.id %>
     <%= link_to 'Edit Account', edit_researcher_path(@researcher), class: "btn btn-warning btn-sm active" %>
     <br>
     <br>
