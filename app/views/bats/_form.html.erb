@@ -16,13 +16,15 @@
     <b><%= f.label :age, "Age in Years" %></b>
     <%= f.text_field :age %><br>
     <b><%= f.label :sex %></b>
-    <%= f.text_field :sex %><br>
+    <%= f.select :sex, ["F", "M", "Unknown"] %><br>
     <b><%= f.label :wing_span, "Wing Span in CM" %></b>
     <%= f.text_field :wing_span %><br>
     <b><%= f.label :colony_size %></b>
     <%= f.text_field :colony_size %><br>
     <b><%= f.label :conservation_status %></b>
-    <%= f.text_field :conservation_status %><br>
+    <%= f.select :conservation_status, 
+        ["Not Evaluated", "Data Deficient", "Least Concern", "Conservation Dependent", "Near Threatened", 
+        "Vulnerable", "Endangered", "Critically Endangered", "Extinict in the Wild", "Extinct"] %><br>
     <b>Presence of White Nose Syndrome:</b>
     <%= f.label :white_nose_syndrome, 'True' %>
     <%= f.radio_button :white_nose_syndrome, 'true' %>
