@@ -13,7 +13,7 @@ Access Type: <%= @researcher.access %><br><br>
 <h4>Bats:</h4> 
     <ol>
         <% @researcher.discovered_bats.all.each do |bat| %>
-            <li><%= link_to bat.tag_number, bat_path(bat)  %></li>
+            <li><%= link_to bat.tag_number, bat_path(bat), class: 'link-info' %></li>
         <% end %>
     </ol>
 

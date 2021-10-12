@@ -1,17 +1,26 @@
 <h1> Welcome
     <% if logged_in? %>
         <%= current_researcher.name %>
-    <% end %></h1>
+    <% end %></h1><br>
 
-<h2>Recorded Bats:</h2>
-
-<%= link_to 'Recently Discovered Bats', recently_discovered_path %>
-    <ol>
-        <% @bats.each do |b| %>
-            <li>
-            <div class="link-info">
-            <%= link_to b.tag_number, bat_path(b) %>
-            </div>
-            </li>
-        <% end %>
-    </ol>
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col">
+            <h2>Recorded Bats:
+            </h2>
+                <ol>
+                    <% @bats.each do |b| %>
+                        <li>
+                        <%= link_to b.tag_number, bat_path(b), class: 'link-info' %></li>
+                    <% end %>
+                </ol>
+        </div>
+       
+        <div class="col">
+        </div>
+        
+        <div class="col">
+            <%= link_to 'Recently Discovered Bats', recently_discovered_path, class: 'btn btn-info'%>
+        </div>
+    </div>
+</div>

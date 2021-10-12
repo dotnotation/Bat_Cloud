@@ -1,6 +1,6 @@
 <h1>Participating Researchers:</h1>
 <ul>
     <% @researchers.each do |r| %>
-        <li><%= link_to r.name, researcher_path(r) %> - <%= r.organization_name %></li>
+        <li><%= link_to r.name, researcher_path(r), class: 'link-info' %> - <%= r.organization_name %></li>
     <% end %>
 </ul>
