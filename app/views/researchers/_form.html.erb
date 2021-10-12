@@ -1,20 +1,33 @@
 <%= form_with model: @researcher do |f| %>
-    <%= f.label :name %>
+        
+    <b><%= f.label :name %></b>
     <%= f.text_field :name %><br>
-    <%= f.label :email %>
+
+    
+    <b><%= f.label :email %></b>
     <%= f.text_field :email %><br>
-    <%= f.label :password %>
+
+    
+    <b><%= f.label :password %></b>
     <%= f.password_field :password %><br>
-    <%= f.label :address %>
+
+
+    <b><%= f.label :address %></b>
     <%= f.text_field :address %>
-    <%= f.label :phone_number %>
+
+    
+    <b><%= f.label :phone_number %></b>
     <%= f.text_field :phone_number %>
-    <%= f.label :organization_name %>
+
+    
+    <b><%= f.label :organization_name %></b>
     <%= f.collection_select :organization_name, Researcher.organizations, :organization_name, :organization_name, {include_blank:true} %>
 
     <% if logged_in? && admin? %>
-        <%= f.label :access, "Researcher Type" %>
+        <b><%= f.label :access, "Researcher Type" %></b>
         <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize} %>
     <% end %>
-    <%= f.submit %>
+        
+    <%= f.submit submit_text, class: "btn btn-info" %>
 <% end %>
+
