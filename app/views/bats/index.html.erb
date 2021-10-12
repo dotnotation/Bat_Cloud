@@ -8,6 +8,10 @@
 <%= link_to 'Recently Discovered Bats', recently_discovered_path %>
     <ol>
         <% @bats.each do |b| %>
-            <li><%= link_to b.tag_number, bat_path(b) %></li>
+            <li>
+            <div class="link-info">
+            <%= link_to b.tag_number, bat_path(b) %>
+            </div>
+            </li>
         <% end %>
     </ol>
