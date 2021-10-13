@@ -10,7 +10,7 @@
     <b><%= f.label :location %></b>
     <%= f.text_field :location %><br>
     <b><%= f.label :date_last_seen %></b>
-    <%= f.datetime_select :date_last_seen 
+    <%= f.datetime_select :date_last_seen, 
         {order: [:month, :day, :year, :hour, :minute], :start_year=>1980, :ampm=> true, :include_blank => true}%><br>
     <b><%= f.label :weight, "Weight in Grams" %></b>
     <%= f.text_field :weight %><br>
