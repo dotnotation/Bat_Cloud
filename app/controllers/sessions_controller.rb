@@ -21,7 +21,6 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        #byebug
         @researcher = Researcher.find_or_create_by(email: auth[:info][:email]) do |r|
             r.email = auth[:info][:email]
             r.name = auth[:info][:name]

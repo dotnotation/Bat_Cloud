@@ -44,7 +44,6 @@ class ResearchersController < ApplicationController
     end
     
     def destroy
-        # byebug
         if current_researcher || admin?
             @researcher.destroy
             flash[:sucess] = "Your account has been deleted. We are sorry to see you go."
