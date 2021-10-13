@@ -17,7 +17,7 @@
     </div>
     <div class="col-8">     
         <b><%= f.label :organization_name %></b>
-        <%= f.collection_select :organization_name, Researcher.organizations, :organization_name, :organization_name, {include_blank:true}, class:"form-control" %>
+        <%= f.collection_select :organization_name, Researcher.organizations, :organization_name, :organization_name, {include_blank:true}, class:"form-select" %>
     </div>
     <div class="col-8"> 
         <b><%= f.label :address %></b>
@@ -26,7 +26,7 @@
         <% if logged_in? && admin? %>
             <div class="col-md-2"> 
                 <b><%= f.label :access, "Researcher Type" %></b>
-                <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize}, class:"form-control" %>
+                <%= f.select :access, [["Admin","admin"],["Member","member"]],{prompt: @researcher.access.titleize}, class:"form-select" %>
             </div>
         <% end %>
     <div class="col-6">     
