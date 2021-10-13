@@ -1,8 +1,12 @@
 class NotesController < ApplicationController
-    before_action :find_bat_for_notes, only: [:new, :create]
+    before_action :find_bat_for_notes, only: [:new, :create, :index]
+
+    def index
+        @notes = @bat.notes.all
+    end
 
     def new
-        @bat = @bat.notes.build
+        @note = @bat.notes.build
     end
 
     def create
