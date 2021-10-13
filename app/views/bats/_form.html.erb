@@ -5,11 +5,13 @@
     <b><%= f.label :species %></b>
     <%= f.text_field :species %><br>
     <b><%= f.label :date_found %></b>
-    <%= f.text_field :date_found %><br>
+    <%= f.datetime_select :date_found, 
+        {order: [:month, :day, :year, :hour, :minute], :start_year=>1980, :ampm=> true, :include_blank => true}%><br>
     <b><%= f.label :location %></b>
     <%= f.text_field :location %><br>
     <b><%= f.label :date_last_seen %></b>
-    <%= f.text_field :date_last_seen %><br>
+    <%= f.datetime_select :date_last_seen 
+        {order: [:month, :day, :year, :hour, :minute], :start_year=>1980, :ampm=> true, :include_blank => true}%><br>
     <b><%= f.label :weight, "Weight in Grams" %></b>
     <%= f.text_field :weight %><br>
     <b><%= f.label :age, "Age in Years" %></b>
