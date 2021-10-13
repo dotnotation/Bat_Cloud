@@ -26,6 +26,18 @@
     <% end %>
 <!----------- END FLASH --------------->
     <%= yield %>
-    </div>
+
+<!----------- START FOOTER --------------->   
+    <footer class="navbar fixed-bottom navbar-dark bg-dark">
+      <div class="container">
+        <a class="nav-link" href="https://github.com/dotnotation/Bat_Cloud">
+        <%= image_tag('GitHub-Mark-Light-64px.png', alt: "Github Logo", width: '25', height: '25') %>
+        </a>
+        <small>&copy; 2021 <strong>BatResearchersLog</strong></small>
+      </div>
+    </footer>
+
+<!----------- END FOOTER --------------->
+
   </body>
 </html>

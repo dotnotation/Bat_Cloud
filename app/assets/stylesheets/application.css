@@ -46,5 +46,9 @@
   #error_explanation{
     background-color: #ffd4d4;
     color: #990000;
-}
+  }
+
+  footer.navbar.fixed-bottom.navbar-dark.bg-dark {
+    
+  }
 
