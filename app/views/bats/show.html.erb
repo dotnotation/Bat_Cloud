@@ -44,6 +44,10 @@
     <h5>Field Notes:</h5>
     <%= render @notes %><br>
 
+    <%= link_to 'Just Notes', bat_notes_path(@bat), class: "btn btn-info btn-sm active" %>
+    <br>
+    <br>
+
     <h6>New Field Note:</h6>
     <%= render partial: 'notes/form' %>
     <br>

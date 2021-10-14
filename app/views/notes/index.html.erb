@@ -1,4 +1,9 @@
 <% if logged_in? %>
-    <h5>Field Notes:</h5>
+    <h1>Field Notes for <%= @bat.tag_number %>:</h1>
     <%= render @notes %><br>
+
+    <%= link_to "New Note", new_bat_note_path(@bat), class: "btn btn-info btn-sm active" %>
+    <br>
+    <br>
+    <%= link_to "Back", bat_path(@bat), class: "btn btn-info btn-sm active"%>
 <% end %>

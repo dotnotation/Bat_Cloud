@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/recently_discovered', to: 'bats#recently_discovered'
 
   resources :bats do
-    resources :notes, only: [:create, :index]
+    resources :notes, only: [:new, :create, :index]
   end
 
   resources :researchers
