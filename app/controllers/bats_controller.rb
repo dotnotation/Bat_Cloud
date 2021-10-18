@@ -15,12 +15,18 @@ class BatsController < ApplicationController
         @bats = Bat.recently_discovered.limit(10)
     end
 
+    def alphabetized_bats
+        @bats = Bat.alphabetized_bats
+        render :index
+    end
+
     def new
         @bat = Bat.new 
     end
 
     def create
         @bat = Bat.new(bat_params)
+        @bat.discoverer_id = current_researcher.id
         if @bat.save
             flash[:success] = "Your bat has been logged."
             redirect_to bat_path(@bat)

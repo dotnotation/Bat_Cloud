@@ -2,11 +2,4 @@
 
 <h1>Log New Bat</h1>
 
-<%= form_with model: @bat do |f| %>
-
-    <%= render "form", f: f %>
-
-        <%= f.hidden_field :discoverer_id, value: current_researcher.id %><br>
-
-            <%= f.submit "Log Bat", class: "btn btn-info" %>
-<% end %>
+<%= render partial: 'form', locals: {submit_text: "Log Bat"} %>

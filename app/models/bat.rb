@@ -2,7 +2,7 @@ class Bat < ApplicationRecord
     extend FriendlyId
     friendly_id :tag_number, use: :slugged 
 
-    has_many :notes
+    has_many :notes, dependent: :destroy
     has_many :researchers, through: :notes
     belongs_to :discoverer, class_name: "Researcher"
 
@@ -11,4 +11,5 @@ class Bat < ApplicationRecord
 
     scope :search, -> (query) { self.where("tag_number LIKE ?", "%#{query}%")}
     scope :recently_discovered, -> { order date_found: :desc}
+    scope :alphabetized_bats, -> { order tag_number: :asc}
 end

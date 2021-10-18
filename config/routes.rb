@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get '/recently_discovered', to: 'bats#recently_discovered'
 
+  get '/alphabetized_bats', to: 'bats#alphabetized_bats'
+
   resources :bats do
     resources :notes, only: [:new, :create, :index]
   end

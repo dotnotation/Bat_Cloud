@@ -4,7 +4,7 @@ class Researcher < ApplicationRecord
 
     has_secure_password
 
-    has_many :notes, :dependent => :delete_all
+    has_many :notes, dependent: :destroy
     has_many :bats, through: :notes
     has_many :discovered_bats, foreign_key: "discoverer_id", class_name: "Bat"
 

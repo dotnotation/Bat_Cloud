@@ -11,6 +11,7 @@ class NotesController < ApplicationController
 
     def create
         @note = @bat.notes.build(note_params)
+        @note.researcher_id = current_researcher.id
         if @note.save
             flash[:success] = "Your note has been saved."
             redirect_to bat_path(@bat)
@@ -22,7 +23,7 @@ class NotesController < ApplicationController
     private
 
     def note_params
-        params.require(:note).permit(:content, :bat_id, :researcher_id)
+        params.require(:note).permit(:content)
     end
 
     def find_bat_for_notes
