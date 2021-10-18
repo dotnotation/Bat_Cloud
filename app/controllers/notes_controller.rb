@@ -15,8 +15,7 @@ class NotesController < ApplicationController
             flash[:success] = "Your note has been saved."
             redirect_to bat_path(@bat)
         else
-            flash[:danger] = "Something went wrong. Please try again later."
-            redirect_to bat_path(@bat)
+            render :new
         end
     end
 
