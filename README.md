@@ -23,6 +23,7 @@ To use Bat Researchers' Log, follow these steps:
 Create a new account by clicking Sign Up. You can either sign up with your email or using Google.
 Look, log, edit, or delete bats (note: only the user who logged the bat can edit or delete that entry unless an admin).
 There is an admin in the seeds if you want to make your account admin status or if you want to play around with that account. 
+<img src="/public/BatCloud.gif" alt="preview of website">
  
 <h3>Contributors:</h3>
 This project was created by @dotnotation as a student of Flatiron School Software Engineering
